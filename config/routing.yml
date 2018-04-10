@@ -1,0 +1,5 @@
+numeric_roster_controller__list:
+    path: /roster{trailingSlash}
+    defaults: { _controller: numeric.roster.list:main, trailingSlash : '/' }
+    requirements:
+        trailingSlash: /?

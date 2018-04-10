@@ -1,0 +1,355 @@
+				<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
+
+				<div class="roster-banner">
+					<div class="char-rank">{CHAR_RANK}</div>
+
+					<div class="char-name">
+
+						<img class="pull-left" src="{PORTRAIT_IMG}" width="64" height="64" class="armory_char_prof" alt="Character portrait" />
+
+						<div class="name-rank-prefix">
+
+							<div class="roster-prefix"><!-- IF CHAR_PREFIX -->{CHAR_PREFIX}<!-- ENDIF -->&nbsp;</div>
+							<h1 style="white-space:nowrap"><a href="{U_CHAR_ARMORY}">{CHAR_NAME}</a><span class="roster-suffix"><!-- IF CHAR_SUFFIX -->{CHAR_SUFFIX}&nbsp;<!-- ENDIF --></span></h1>
+
+							<span style="line-height:200%;color:white;">Level {CHAR_LEVEL} {CHAR_RACE} {CHAR_CLASS}</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="clearfix"></div>
+
+				<div class="table">
+					<div class="roster-container-bg roster-bg-{CLASS_CLEAN}">
+						<div class="content">
+
+							<div class="col-sm-7">
+								<!-- Container block for talents, equipment and stats -->
+								<div class="character-container">
+
+									<!-- paperdoll/equipment/etc. -->
+									<div class="paperdoll-block">
+										<div class="equip-left">
+											<!-- BEGIN roster_equip_left -->
+											<div class="equip-item">
+												<!-- IF roster_equip_left.ITEM_ID -->
+												<img src="/styles/aquila/theme/images/icons/64/{roster_equip_left.IMG_ICON}" />
+												<ins></ins>
+												<a class="item-{roster_equip_left.QUALITY}" href="//www.wowhead.com/item={roster_equip_left.ITEM_ID}<!-- IF roster_equip_left.REL -->&{roster_equip_left.REL}<!-- ENDIF -->"></a>
+												<!-- ENDIF -->
+											</div>
+											<!-- END roster_equip_left -->
+										</div>
+
+										<div class="equip-right">
+											<!-- BEGIN roster_equip_right -->
+											<div class="equip-item">
+												<!-- IF roster_equip_right.ITEM_ID -->
+												<img src="/styles/aquila/theme/images/icons/64/{roster_equip_right.IMG_ICON}" />
+												<ins></ins>
+												<a class="item-{roster_equip_right.QUALITY}" href="//www.wowhead.com/item={roster_equip_right.ITEM_ID}<!-- IF roster_equip_right.REL -->&{roster_equip_right.REL}<!-- ENDIF -->"></a>
+												<!-- ENDIF -->
+											</div>
+											<!-- END roster_equip_right -->
+										</div>
+
+										<div class="equip-centre">
+											<!-- BEGIN roster_equip_center -->
+											<div class="equip-item">
+												<!-- IF roster_equip_center.ITEM_ID -->
+												<img src="/styles/aquila/theme/images/icons/64/{roster_equip_center.IMG_ICON}" />
+												<ins></ins>
+												<a class="item-{roster_equip_center.QUALITY}" href="//www.wowhead.com/item={roster_equip_center.ITEM_ID}<!-- IF roster_equip_center.REL -->&{roster_equip_center.REL}<!-- ENDIF -->"></a>
+												<!-- ENDIF -->
+											</div>
+											<!-- END roster_equip_center -->
+										</div>
+
+										<!-- paperdoll -->
+										<div id="paper-doll" class="equip-model">
+											<div id="wowheadmodelviewer">
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<!-- stats -->
+								<div class="stats-block">
+
+									<div class="stats-header">
+										<!-- base stats -->
+										<div class="stats-header-base">
+											<span>Base Stats</span>
+										</div>
+
+										<!-- secondary stats -->
+										<div class="stats-header-secondary">
+											<!-- buttons -->
+											<div class="stats-btn stats-btn-right"></div>
+											<div class="stats-btn stats-btn-left"></div>
+
+											<!-- BEGIN other_stats_header -->
+											<span class="stat-header-type-{other_stats_header.STAT_NAME}" style="display:{other_stats_header.S_VISIBLE}">{other_stats_header.STAT_NAME_CAP}</span>
+											<!-- END other_stats_header -->
+										</div>
+									</div>
+
+									<!-- base stats -->
+									<div class="stats-container">
+										<div class="stats-list stats-base">
+											<!-- BEGIN base_stats -->
+											<dl>
+												<dt>{base_stats.TITLE}</li>
+												<dd>{base_stats.VALUE}</dd>
+											</dl>
+											<!-- END base_stats -->
+										</div>
+
+										<!-- secondary stats -->
+										<div class="stats-list stats-secondary">
+											<!-- BEGIN other_stats_outer -->
+											<div class="stat-list-js stat-header-type-{other_stats_outer.STAT_NAME}" style="display:{other_stats_outer.S_VISIBLE}">
+												<!-- BEGIN secondary_stats -->
+												<dl>
+													<dt>{other_stats_outer.secondary_stats.TITLE}</li>
+													<dd>{other_stats_outer.secondary_stats.VALUE}</dd>
+												</dl>
+												<!-- END secondary_stats -->
+											</div>
+											<!-- END other_stats_outer -->
+										</div>
+
+										<script type="text/javascript">
+										//<![CDATA[
+											$(document).ready(function() {
+												var stats_len 		= $('div.stats-secondary').children().length;
+												var stats 			= $('.stats-secondary').children('div');
+												var stats_header 	= $('.stats-header-secondary').children('span');
+
+												$("#paper-doll").bind('mousewheel', function() {
+													return false;
+												});
+												$('#paper-doll').click(function(e) {
+													if (e.ctrlKey)
+														return false;
+												});
+
+												$('.stats-btn').click(function(){
+													var direction = ($(this).attr("class").indexOf('right') != -1) ? 1 : -1;
+
+													stats.each(function(index, p){
+														if ($(this).is(':visible'))
+														{
+															$(this).add($(stats_header[index])).css('display', 'none');
+
+															if (index + direction < 0)
+																$(stats[(stats_len - 1)]).add($(stats_header[(stats_len - 1)])).css('display','block');
+															else if (index + direction == stats_len)
+																$(stats[0]).add($(stats_header[0])).css('display','block');
+															else
+																$(stats[(index + direction)]).add($(stats_header[(index + direction)])).css('display','block');
+															return false;
+														}
+													})
+												});
+											});
+
+										//]]>
+										</script>
+									</div>
+
+								</div>
+								<!-- stats block -->
+
+							</div>
+							<!-- span7 -->
+
+							<div class="col-sm-5">
+
+								<br />
+
+								<div class="roster-panel-container">
+									<h2>Talents</h2>
+
+									<!-- talent block -->
+									<div class="talents-block">
+										<!-- Primary talents -->
+										<!-- IF TALENT1_NAME -->
+										<a class="talents-select talents-img-{CLASS_CLEAN} primary primary-{T_TALENT1_BTN_POS}" href="{U_TALENTS1_URL}">
+											<div class="talents-select-inner"><!-- //eu.media.blizzard.com/wow/icons/36-->
+												<img src="/styles/aquila/theme/images/icons/32/{TALENT1_ICON}.png" />
+												<span class="spec-name">
+													{TALENT1_NAME}
+													<span class="spec-points">
+														{TALENT1_POINTS}
+													</span>
+												</span>
+											</div>
+										</a>
+										<!-- ENDIF -->
+
+										<!-- Secondary talents -->
+										<!-- IF TALENT2_NAME -->
+										<a class="talents-select talents-img-{CLASS_CLEAN} secondary secondary-{T_TALENT2_BTN_POS}" href="{U_TALENTS2_URL}">
+											<div class="talents-select-inner">
+												<img src="/styles/aquila/theme/images/icons/32/{TALENT2_ICON}.png" />
+												<span class="spec-name">
+													{TALENT2_NAME}
+													<span class="spec-points">
+														{TALENT2_POINTS}
+													</span>
+												</span>
+											</div>
+										</a>
+										<!-- ENDIF -->
+									</div>
+
+									<div class="talents-glyphs-block">
+										<div class="talents-list talents-tiers">
+											<!-- BEGIN talent_list -->
+											<dl>
+												<dt>
+													<!-- IF talent_list.TALENT_ICON -->
+													<div class="iconsmall" style="background: url('/styles/aquila/theme/images/icons/18/{talent_list.TALENT_ICON}.png') no-repeat scroll 4px 4px;">
+													<!-- ELSE -->
+													<div class="iconsmall">
+													<!-- ENDIF -->
+														<div class="tile">
+															<!-- IF talent_list.TALENT_ID -->
+															<a href="//www.wowhead.com/spell={talent_list.TALENT_ID}" target="_blank" /></a>
+															<!-- ELSE -->
+															<span class="no-talent" style="background-color: rgba(0, 0, 0, 0.4);display: block;width: 18px;height: 18px;left: 4px;top: 4px;position: absolute;">
+																<!-- IF talent_list.TALENT_LEVEL -->
+																<span style="color: rgba(255,255,255,0.4);font-size: 10px;display: block;text-shadow: none;padding: 1px 0;text-align: center;">{talent_list.TALENT_LEVEL}</span>
+																<!-- ENDIF -->
+															</span>
+															<!-- ENDIF -->
+														</div>
+													</div>
+												</dt>
+												<dd><!-- IF talent_list.TALENT_ID --><a href="//www.wowhead.com/spell={talent_list.TALENT_ID}">{talent_list.TALENT_NAME}</a><!-- ELSE -->{talent_list.TALENT_NAME}<!-- ENDIF --></dd>
+											</dl>
+											<!-- END talent_list -->
+										</div>
+
+										<div class="talents-list talents-glyphs">
+											<dl>
+												<dt>Major Glyphs</dt>
+												<dd>
+													<ul>
+													<!-- BEGIN major_glyph_list -->
+														<li>
+															<!-- IF major_glyph_list.GLYPH_NAME -->
+															<div class="iconsmall" style="background: url('/styles/aquila/theme/images/icons/18/{major_glyph_list.GLYPH_ICON}.png') no-repeat scroll 4px 4px;">
+															<!-- ELSE -->
+															<div class="iconsmall">
+															<!-- ENDIF -->
+																<div class="tile">
+																	<!-- IF major_glyph_list.GLYPH_NAME --><a href="//www.wowhead.com/<!-- IF major_glyph_list.GLYPH_ID -->item={major_glyph_list.GLYPH_ID}<!-- ELSE -->spell={major_glyph_list.SPELL_ID}<!-- ENDIF -->" target="_blank" /></a><!-- ENDIF -->
+																</div>
+															</div>
+														</li>
+													<!-- END major_glyph_list -->
+													</ul>
+												</dd>
+											</dl>
+											<dl>
+												<dt>Minor Glyphs</dt>
+												<dd>
+													<ul>
+													<ul>
+													<!-- BEGIN minor_glyph_list -->
+														<li>
+															<!-- IF minor_glyph_list.GLYPH_NAME -->
+															<div class="iconsmall" style="background: url('/styles/aquila/theme/images/icons/18/{minor_glyph_list.GLYPH_ICON}.png') no-repeat scroll 4px 4px;">
+															<!-- ELSE -->
+															<div class="iconsmall">
+															<!-- ENDIF -->
+																<div class="tile">
+																	<!-- IF minor_glyph_list.GLYPH_NAME --><a href="//www.wowhead.com/<!-- IF minor_glyph_list.GLYPH_ID -->item={minor_glyph_list.GLYPH_ID}<!-- ELSE -->spell={minor_glyph_list.SPELL_ID}<!-- ENDIF -->" target="_blank" /></a><!-- ENDIF -->
+																</div>
+															</div>
+														</li>
+													<!-- END minor_glyph_list -->
+													</ul>
+												</dd>
+											</dl>
+										</div>
+									</div>
+
+									<br />
+
+									<h2>Activity</h2>
+
+									<div class="activity-feed" style="max-height:430px;margin-top:10px;margin-bottom:20px;">
+										<ul>
+											<!-- BEGIN feed_list -->
+											<li class="<!-- IF feed_list.S_ROW_COUNT % 2 -->row1<!-- ELSE -->row2<!-- ENDIF -->">
+												<dl>
+													<dt>
+														<!-- IF feed_list.FEED_ICON_TYPE == 'BOSSKILL' -->
+														<div class="iconsmall" style="background: url('/styles/aquila/theme/images/icons/feed-icons.gif') no-repeat -20px 4px;">
+														<!-- ELSEIF feed_list.FEED_ICON_TYPE == 'CRITERIA' -->
+														<div class="iconsmall" style="background: url('/styles/aquila/theme/images/icons/feed-icons.gif') no-repeat 0 4px;">
+														<!-- ELSE -->
+														<div class="iconsmall" style="background: url('{feed_list.FEED_ICON}') no-repeat scroll 4px 4px;">
+														<!-- ENDIF -->
+															<div class="tile">
+																<!-- IF feed_list.FEED_ICON_ID -->
+																<a href="//www.wowhead.com/item={feed_list.FEED_ICON_ID}" target="_blank" /></a>
+																<!-- ENDIF -->
+															</div>
+														</div>
+													</dt>
+													<dd><span style="font-size:0.9em">{feed_list.FEED_TIME}</span><br />{feed_list.FEED_TEXT}</dd>
+												</dl>
+											</li>
+											<!-- END feed_list -->
+										</ul>
+									</div>
+
+									<script>
+										(function($){
+											$(window).load(function(){
+												$(".activity-feed").mCustomScrollbar({
+													scrollInertia: 0,
+													theme: "dark-2",
+													scrollButtons: {
+														enable: true,
+													},
+												});
+											});
+										})(jQuery);
+									</script>
+
+								</div>
+								<!-- panel-container -->
+
+							</div>
+							<!-- span5 -->
+
+							<div class="clearfix"></div>
+
+						</div>
+					</div>
+				</div>
+
+				<div class="actionbar">
+					<div class="actionbar-inner">
+						<ul class="nav">
+							<!-- IF U_USER_ADMIN or U_USER_BAN or U_SWITCH_PERMISSIONS -->
+							<li class="dropdown" id="dropdown-admin">
+								<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+								Administration
+								<b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<!-- IF U_USER_ADMIN --><li><a href="{U_USER_ADMIN}">Administrate User</a></li><!-- ENDIF -->
+									<!-- IF U_USER_BAN --><li><a href="{U_USER_BAN}">Ban User</a></li><!-- ENDIF -->
+									<!-- IF U_SWITCH_PERMISSIONS --><li><a href="{U_SWITCH_PERMISSIONS}">Test Permissions</a></li><!-- ENDIF -->
+								</ul>
+							</li>
+							<!-- ENDIF -->
+							<li><span>Last Modified: {LAST_MODIFIED}</span></li>
+						</ul>
+					</div>
+				</div>

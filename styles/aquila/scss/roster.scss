@@ -1,0 +1,618 @@
+
+/**
+	Overrides for the base style
+**/
+
+.content .paperdoll-block a {
+	border: 0;
+}
+
+.content .paperdoll-block img {
+	top: 0;
+	left: 0;
+	border: 0;
+}
+
+
+
+
+
+.armory_display {
+	padding:5px;
+}
+
+.armory_display img {
+	margin:0;
+	border: 0;
+}
+
+img.armory_char_prof {
+	border:none;
+	float:left;
+	padding-right:10px;
+	padding-left:5px;
+	padding-bottom:5px;
+}
+
+
+
+span.armory_char_info {
+	font-size:90%;
+}
+
+
+
+
+
+
+
+ul.armory_equip_list li a, ul.armory_achiev_list li a {
+	background-image:none !important;
+}
+
+img.armory_item_icon {
+	padding:2px !important;
+}
+
+
+
+ul.armory_prof_list, ul.armory_achiev_list {
+	list-style:none !important;
+}
+
+ul.armory_prof_list li, ul.armory_achiev_list li {
+ background-image:none !important;
+}
+
+
+
+ul.armory_achiev_list li {
+	display:block;
+	margin:3px !important;
+	height: 27px;
+}
+
+
+img.armory_achiev_icon {
+	padding-right:10px;
+	float: left;
+}
+
+
+
+span.armory_prof_name {
+ font-weight:bold;
+}
+
+span.active_spec {
+/*	border:1px #000 dashed;*/
+	padding-right:5px;
+}
+
+span.inactive_spec {
+	margin-left:10px;
+}
+
+div.wa-model {
+	text-align:center;
+	height:400px;
+	width:100%;
+	display:inline;
+	text-align:center;
+}
+
+div.wa-load {
+	display:none;
+	text-align:center;
+	height:400px;
+	width:100%;
+	vertical-align:middle;
+}
+/* autocomplete */
+.ac_input {
+	width: 200px;
+}
+.ac_results {
+	padding: 0px;
+	border: 1px solid WindowFrame;
+	background-color: Window;
+	overflow: hidden;
+}
+
+.ac_results ul {
+	width: 100%;
+	list-style-position: outside;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.ac_results iframe {
+	display:none;/*sorry for IE5*/
+	display/**/:block;/*sorry for IE5*/
+	position:absolute;
+	top:0;
+	left:0;
+	z-index:-1;
+	filter:mask();
+	width:3000px;
+	height:3000px;
+}
+
+.ac_results li {
+	margin: 0px;
+	padding: 2px 5px;
+	cursor: pointer;
+	display: block;
+	width: 100%;
+	font: menu;
+	font-size: 12px;
+	overflow: hidden;
+}
+
+.ac_over {
+	background-color: Highlight;
+	color: HighlightText;
+}
+
+dl.prog_bar, dt.prog_bar, dd.prog_bar{margin:0;padding:0;}
+
+dd.prog_bar {
+	width:204px;
+	height:23px;
+	position:relative;
+	overflow:hidden;
+	color: white;
+}
+
+dd.prog_bar span.back {
+	position:absolute;
+	display:block;
+	width:204px;
+	height:23px;
+	top:0px;
+	left:0px;
+	overflow:hidden;
+	background:url(prog_back.png) no-repeat 0 0;
+	text-indent:-8000px;
+}
+
+dd.prog_bar span.bar{
+	position:absolute;
+	display:block;
+	width:204px;
+	height:23px;
+	background:url(prog_bar.png) no-repeat 0 0;
+	top:0px;
+	overflow:hidden;
+	text-indent:-8000px;
+}
+dd.prog_bar em{
+	position:absolute;
+	display:block;
+	width:204px;
+	height:23px;
+	background:url(prog_frame.png) repeat-x;
+	top:0;
+	left:0;
+	overflow:hidden;
+	text-indent:-8000px;
+}
+
+dd.prog_bar span.caption {
+	position:absolute;
+	display:block;
+	width:204px;
+	height:23px;
+	padding-top:4px;
+	padding-left: 22px;
+	font-weight:bold;
+	top:0;
+	left:0;
+	overflow:hidden;
+}
+
+.apoints {
+	background:url(shield.gif) 5px 5px no-repeat !important;
+}
+
+p.apoints-text {
+	background:url(shield.gif) 5px 5px no-repeat !important;
+	padding-top:4px;
+	padding-left: 22px;
+	font-weight:bold;
+}
+
+
+
+
+
+
+/**
+	Major containers
+*/
+.roster-container-bg {
+	background-color: 		transparent;
+	background-repeat: 		no-repeat;
+	background-position:	0 0;
+	border:					0;
+}
+.roster-bg-deathknight {
+	background-image:url('/styles/aquila/theme/images/roster/roster-bg-deathknight.jpg');
+}
+.roster-bg-druid {
+	background-image:url('/styles/aquila/theme/images/roster/roster-bg-druid.jpg');
+}
+.roster-bg-hunter {
+	background-image:url('/styles/aquila/theme/images/roster/roster-bg-hunter.jpg');
+}
+.roster-bg-mage {
+	background-image:url('/styles/aquila/theme/images/roster/roster-bg-mage.jpg');
+}
+.roster-bg-monk {
+	background-image:url('/styles/aquila/theme/images/roster/roster-bg-monk.jpg');
+}
+.roster-bg-paladin {
+	background-image:url('/styles/aquila/theme/images/roster/roster-bg-paladin.jpg');
+}
+.roster-bg-priest {
+	background-image:url('/styles/aquila/theme/images/roster/roster-bg-priest.jpg');
+}
+.roster-bg-rogue {
+	background-image:url('/styles/aquila/theme/images/roster/roster-bg-rogue.jpg');
+}
+.roster-bg-shaman {
+	background-image:url('/styles/aquila/theme/images/roster/roster-bg-shaman.jpg');
+}
+.roster-bg-warlock {
+	background-image:url('/styles/aquila/theme/images/roster/roster-bg-warlock.jpg');
+}
+.roster-bg-warrior {
+	background-image:url('/styles/aquila/theme/images/roster/roster-bg-warrior.jpg');
+}
+
+/* 2 column left menu settings */
+.leftmenu-roster .colright {
+	float:left;
+	width:200%;
+	position:relative;
+	left:500px;
+}
+.leftmenu-roster .col1wrap {
+	float:right;
+	width:50%;
+	position:relative;
+	right:500px;
+	padding-bottom:1em;
+}
+.leftmenu-roster .col1 {
+	margin:0 15px 0 490px;
+	position:relative;
+	right:100%;
+	overflow:hidden;
+}
+.leftmenu-roster .col2 {
+	float:left;
+	width:490px;
+	position:relative;
+	right:500px;
+}
+
+
+/**
+*
+*	Character container
+*
+**/
+.character-container {
+	position:relative;
+	left:8px;
+	width:505px;
+	height:790px;
+}
+
+/*
+	Talent block
+*/
+.talents-block {
+	position:absolute;
+	top:14px;
+	height:57px;
+}
+
+.talents-select {
+	display:block;
+	position:absolute;
+	top:0px;
+	height:57px;
+	width:165px;
+	background-repeat:none;
+	color:#000;
+}
+.talents-block .primary {
+	left:90px;
+	top:0px;
+}
+.talents-block .secondary {
+	left:255px;
+	top:0px;
+}
+.talents-block .primary-inactive-unselected {
+	background-position:	0px 0px
+}
+.talents-block .primary-inactive-selected {
+	background-position:	0px 114px
+}
+.talents-block .primary-inactive-unselected:hover, .talents-block .primary-inactive-selected:hover {
+	background-position:	0px 228px
+}
+.talents-block .primary-active-unselected {
+	background-position:	330px 0px
+}
+.talents-block .primary-active-selected {
+	background-position:	330px 114px
+}
+.talents-block .primary-active-unselected:hover, .talents-block .primary-active-selected:hover {
+	background-position:	330px 228px
+}
+.talents-block .secondary-inactive-unselected {
+	background-position:	-165px 0px
+}
+.talents-block .secondary-inactive-selected {
+	background-position:	-165px 114px
+}
+.talents-block .secondary-inactive-unselected:hover, .talents-block .secondary-inactive-selected:hover {
+	background-position:	-165px 228px
+}
+.talents-block .secondary-active-unselected {
+	background-position:	-495px 0px
+}
+.talents-block .secondary-active-selected {
+	background-position:	-495px 114px
+}
+.talents-block .secondary .active-unselected:hover, .talents-block .secondary-active-selected:hover {
+	background-position:	-495px 228px
+}
+
+.talents-select-inner {
+	padding:11px 13px;
+	font: bold 1.25em Verdana, serif;
+	font-variant:small-caps;
+	line-height:13px;
+}
+.talents-select-inner img {
+	padding-top:2px;
+	width:30px;
+	height:30px;
+	float:left;
+}
+.talents-select span.spec-name {
+	padding-left:10px;
+}
+.talents-select span.spec-points {
+	display:block;
+	text-align:right;
+	font: normal 1.0em Georgia,serif;
+	line-height:22px;
+	color:#632F1C
+}
+
+.talents-img-deathknight {
+	background-image:url('/styles/aquila/theme/images/roster/talent_btn_deathknight.jpg');
+}
+.talents-img-druid {
+	background-image:url('/styles/aquila/theme/images/roster/talent_btn_druid.jpg');
+}
+.talents-img-hunter {
+	background-image:url('/styles/aquila/theme/images/roster/talent_btn_hunter.jpg');
+}
+.talents-img-mage {
+	background-image:url('/styles/aquila/theme/images/roster/talent_btn_mage.jpg');
+}
+.talents-img-monk {
+	background-image:url('/styles/aquila/theme/images/roster/talent_btn_monk.jpg');
+}
+.talents-img-paladin {
+	background-image:url('/styles/aquila/theme/images/roster/talent_btn_paladin.jpg');
+}
+.talents-img-priest {
+	background-image:url('/styles/aquila/theme/images/roster/talent_btn_priest.jpg');
+}
+.talents-img-rogue {
+	background-image:url('/styles/aquila/theme/images/roster/talent_btn_rogue.jpg');
+}
+.talents-img-shaman {
+	background-image:url('/styles/aquila/theme/images/roster/talent_btn_shaman.jpg');
+}
+.talents-img-warlock {
+	background-image:url('/styles/aquila/theme/images/roster/talent_btn_warlock.jpg');
+}
+.talents-img-warrior {
+	background-image:url('/styles/aquila/theme/images/roster/talent_btn_warrior.jpg');
+}
+
+
+/*
+	Paperdoll block
+*/
+.paperdoll-block {
+	position:	absolute;
+	top:		68px;
+}
+.equip-left {
+	position:absolute;
+	top:0px;
+	left:22px
+}
+.equip-right {
+	position:absolute;
+	top:0px;
+	left:431px
+}
+.equip-centre {
+	position:absolute;
+	top:450px;
+	left:201px;
+	width:200px;
+}
+.equip-item {
+	width:53px;
+	height:56px;
+	position:relative;
+	z-index:0;
+	margin:0;
+}
+.equip-centre .equip-item  {
+	display:	inline-block;
+	margin:		0 -1px;
+}
+.equip-item a {
+	display:block;
+	position:absolute;
+	z-index:20;
+	left:0px;
+	top:0px;
+	width:53px;
+	height:53px;
+	background-position:1px 0;
+	background-repeat:no-repeat;
+	background-color:transparent;
+}
+.equip-item a:hover {
+	background-position: 1px 0;
+}
+.equip-item ins {
+	display:	block;
+	position:	absolute;
+	width:		32px;
+	height:		32px;
+	top:		0;
+	left:		0;
+	z-index:	10;
+}
+.equip-item img {
+	display:	block;
+	position:	absolute;
+	left:		5px;
+	top:		4px;
+	width:		46px;
+	height:		46px;
+}
+.equip-model {
+	position:absolute;
+	top:8px;
+	left:82px;
+}
+
+.equip-item .item-q0 {
+	background-image:url('/styles/aquila/theme/images/roster/icon_border_large_q0.png');
+}
+.equip-item .item-q1 {
+	background-image:url('/styles/aquila/theme/images/roster/icon_border_large_q1.png');
+}
+.equip-item .item-q2 {
+	background-image:url('/styles/aquila/theme/images/roster/icon_border_large_q2.png');
+}
+.equip-item .item-q3 {
+	background-image:url('/styles/aquila/theme/images/roster/icon_border_large_q3.png');
+}
+.equip-item .item-q4 {
+	background-image:url('/styles/aquila/theme/images/roster/icon_border_large_q4.png');
+}
+.equip-item .item-q5 {
+	background-image:url('/styles/aquila/theme/images/roster/icon_border_large_q5.png');
+}
+.equip-item .item-q6 {
+	background-image:url('/styles/aquila/theme/images/roster/icon_border_large_q6.png');
+}
+.equip-item .item-q7 {
+	background-image:url('/styles/aquila/theme/images/roster/icon_border_large_q7.png');
+}
+
+
+/*
+	Stats block
+*/
+.stats-block {
+	overflow:auto;
+	position:absolute;
+	top:594px;
+	left:20px;
+	width:470px;
+}
+
+.stats-header {
+	position:relative;
+	width:470px;
+	height:45px;
+	background:url('/styles/aquila/theme/images/roster/stat_headers.jpg') no-repeat 0 0;
+}
+.stats-header-base {
+	position:absolute;
+	top:9px;
+	left:10px;
+	width:222px;
+}
+.stats-header-secondary {
+	position:absolute;
+	top:9px;
+	left:240px;
+	width:222px;
+}
+.stats-btn {
+	cursor:	pointer;
+	float:right;
+	display:inline-block;
+	width:30px;
+	height:28px;
+	background: url('/styles/aquila/theme/images/roster/stat_btns.jpg') no-repeat
+}
+.stats-btn-left {
+	background-position:  top left;
+}
+.stats-btn-right {
+	background-position:  top right;
+}
+.stats-btn-left:hover {
+	background-position:  bottom left;
+}
+.stats-btn-right:hover {
+	background-position:  bottom right;
+}
+.stats-header span {
+	display:inline-block;
+	width:154px;
+	padding: 4px 0 0 8px;
+	font: normal 1.8em Garamond, Times New Roman, Times, serif;
+	color:#2c150e;
+}
+
+.stats-list {
+	overflow:auto;
+	width:220px;
+}
+.stats-base {
+	float:left;
+	margin-left:10px;
+}
+.stats-secondary {
+	margin-left:241px;
+}
+.stats-list dl {
+	border-bottom:	dotted 1px #632F1C;
+	margin-top:		1px;
+	padding-bottom:	1px;
+}
+.stats-list dt {
+	float:				left;
+	list-style-type:	none;
+	font: 				normal 1.2em Georgia,Verdana,serif;
+	color:				#632F1C;
+	padding: 			2px 8px;
+}
+.stats-list dd {
+	text-align:			right;
+	font: 				bold 1.2em Georgia,Verdana,serif;
+	color:				#632F1C;
+	padding: 			2px 8px;
+}

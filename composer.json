@@ -1,0 +1,32 @@
+{
+    "name": "numeric/roster",
+    "type": "phpbb-extension",
+    "description": "Display guild roster",
+    "homepage": "",
+    "version": "1.0.0-dev",
+    "time": "2017-01-02",
+    "license": "GPL-2.0",
+    "authors": [
+        {
+            "name": "numeric",
+            "email": "paul@starstreak.net",
+            "homepage": "",
+            "role": ""
+        },
+        {
+            "name": "",
+            "email": "",
+            "homepage": "",
+            "role": ""
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3"
+    },
+    "extra": {
+        "display-name": "Guild Roster",
+        "soft-require": {
+            "phpbb/phpbb": ">=3.1.4,<3.2.0@dev"
+        }
+    }
+}

@@ -1,0 +1,71 @@
+<!-- INCLUDE overall_header.html -->
+
+		<div class="page-content">
+			<div class="page-content-inner">
+
+				<div class="actionbar">
+					<div class="actionbar-inner">
+						<!-- IF PAGE_NUMBER -->
+						<div class="pull-right">
+							<div class="pagination">
+								<span>{TOTAL_PLAYERS}</span>
+								&bull;
+								<!-- INCLUDE pagination.html -->
+							</div>
+						</div>
+						<!-- ENDIF -->
+					</div>
+				</div>
+
+				<div class="clear"></div>
+
+				<ul class="table roster">
+					<li class="header">
+						<dl>
+							<dt class="name"><a href="{U_SORT_NAME}">{L_NAME}</a></dt>
+							<dd class="rank"><a href="{U_SORT_RANK}">{L_RANK}</a></dd>
+							<dd class="class"><a href="{U_SORT_CLASS}">{L_CLASS}</a></dd>
+							<dd class="level"><a href="{U_SORT_LEVEL}">{L_LEVEL}</a></dd>
+							<dd class="race"><a href="{U_SORT_RACE}">{L_RACE}</a></dd>
+							<dd class="spec"><a href="{U_SORT_BUILD}">{L_SPEC}</a></dd>
+							<dd class="ilvl"><a href="{U_SORT_ILVL}">{L_ILEVEL}</a></dd>
+						</dl>
+					</li>
+					<!-- BEGIN roster -->
+					<li class="row <!-- IF roster.S_ROW_COUNT % 2 -->row2<!-- ELSE -->row1<!-- ENDIF -->">
+						<dl>
+							<dt class="name"><span class="class-bg"><span class="class {roster.CLASS_CSS}"><!-- IF roster.U_PROFILE --><a href="{roster.U_PROFILE}"><!-- ENDIF -->{roster.NAME}<!-- IF roster.U_PROFILE --></a><!-- ENDIF --></span></span></dt>
+							<dd class="rank">{roster.RANK}</dd>
+							<dd class="class">{roster.CLASS}</dd>
+							<dd class="level">{roster.LEVEL}</dd>
+							<dd class="race">{roster.RACE}</dd>
+							<dd class="spec" data-aquila-tooltip="{roster.U_BUFF_TOOLTIP}"><a href="javascript: void(0);">{roster.SPEC}</a></dd>
+							<dd class="ilvl">{roster.ILVL}</dd>
+						</dl>
+					</li>
+					<!-- END roster -->
+				</ul>
+
+				<div class="clear"></div>
+
+				<div class="actionbar">
+					<div class="actionbar-inner">
+						<!-- IF PAGE_NUMBER -->
+						<div class="pull-right">
+							<div class="pagination">
+								<span>{TOTAL_PLAYERS}</span>
+								&bull;
+								<!-- INCLUDE pagination.html -->
+							</div>
+						</div>
+						<!-- ENDIF -->
+						<div class="last-updated">{L_LAST_UPDATED}{L_COLON} {ROSTER_UPDATE}</span>
+					</div>
+				</div>
+
+				<div class="clear"></div>
+
+			</div>
+		</div>
+
+<!-- INCLUDE overall_footer.html -->

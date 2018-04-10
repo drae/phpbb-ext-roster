@@ -1,0 +1,20 @@
+services:
+    numeric.roster.listener:
+        class: numeric\roster\event\main_listener
+        arguments:
+            - '@controller.helper'
+            - '@template'
+        tags:
+            - { name: event.listener }
+
+    numeric.roster.list:
+        class: numeric\roster\controller\roster_list
+        arguments:
+            - '@controller.helper'
+            - '@auth'
+            - '@config'
+            - '@dbal.conn'
+            - '@template'
+            - '@user'
+            - '@request'
+            - '@service_container'
