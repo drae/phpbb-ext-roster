@@ -1,0 +1,6 @@
+# Project folders
+**/node_modules
+dist/
+
+# Misc
+*.bak
